@@ -1,0 +1,234 @@
+/* ─── Layout ─────────────────────────────────────────────────── */
+.al-root {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.al-canvas-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 40% 60%, #1e1b4b 0%, #0d0d1a 70%);
+}
+
+/* ─── Card ───────────────────────────────────────────────────── */
+.al-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px;
+  padding: 40px 36px 32px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(52, 211, 153, 0.1),
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(167, 139, 250, 0.1);
+  animation: al-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  text-align: center;
+}
+
+@keyframes al-rise {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)     scale(1); }
+}
+
+/* ─── Shield icon ring ───────────────────────────────────────── */
+.al-icon-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 28px rgba(167, 139, 250, 0.3);
+}
+
+/* ─── Typography ─────────────────────────────────────────────── */
+.al-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+}
+
+.al-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 28px;
+}
+
+/* ─── Error ──────────────────────────────────────────────────── */
+.al-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+/* ─── Form ───────────────────────────────────────────────────── */
+.al-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.al-field {
+  position: relative;
+}
+
+.al-field-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+.al-field input {
+  width: 100%;
+  padding: 13px 44px 13px 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+
+.al-field input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.al-field input:focus {
+  border-color: rgba(167, 139, 250, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15);
+}
+
+/* ─── Eye toggle ─────────────────────────────────────────────── */
+.al-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.al-eye:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── Button ─────────────────────────────────────────────────── */
+.al-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #7c3aed 0%, #34d399 100%);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+  letter-spacing: 0.01em;
+}
+
+.al-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.55);
+  filter: brightness(1.08);
+}
+
+.al-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.al-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ─── Spinner ────────────────────────────────────────────────── */
+.al-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: al-spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes al-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Hint ───────────────────────────────────────────────────── */
+.al-hint {
+  margin: 20px 0 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Back Button ────────────────────────────────────────────── */
+.al-back-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.al-back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
