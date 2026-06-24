@@ -1063,3 +1063,54 @@ button {
     }
   }
 }
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+  /* General Layout */
+  .top-nav {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  /* Customer View */
+  .customer-view {
+    padding: 16px;
+  }
+  .login-card {
+    padding: 24px;
+  }
+  .customer-grid {
+    grid-template-columns: 1fr;
+  }
+  .chat-card {
+    height: 80vh;
+    min-height: 400px;
+  }
+  .chat-header {
+    padding: 12px 16px;
+  }
+  .msg-row {
+    max-width: 95%;
+  }
+  .chat-input-row {
+    padding: 12px 16px;
+  }
+
+  /* Admin Dashboard */
+  .admin-shell {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .admin-col {
+    border-left: none;
+    border-bottom: 1px solid var(--color-slate-600);
+    min-height: 400px;
+    flex: none;
+  }
+  .admin-col:last-child {
+    border-bottom: none;
+  }
+}
+
