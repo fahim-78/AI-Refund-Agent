@@ -12,6 +12,19 @@ app.use(cors({ origin: config.clientOrigin }));
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
+
+app.post("/api/auth/mock-google", (req, res) => {
+  const { email } = req.body;
+
+  res.json({
+    token: "demo-token",
+    user: {
+      email,
+      name: email.split("@")[0]
+    }
+  });
+});
+
 app.use("/api", chatRouter);
 app.use("/api/admin", adminRouter);
 
