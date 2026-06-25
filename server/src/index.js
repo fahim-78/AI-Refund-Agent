@@ -20,7 +20,8 @@ app.post("/api/auth/mock-google", (req, res) => {
     token: "demo-token",
     user: {
       email,
-      name: email.split("@")[0]
+      name: email.split("@")[0],
+      role: "customer"
     }
   });
 });
